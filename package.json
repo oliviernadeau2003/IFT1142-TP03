@@ -1,0 +1,19 @@
+{
+  "name": "tp2",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "nodemon serveur_web.js",
+    "go": "node serveur_web.js"
+  },
+  "keywords": [],
+  "author": "Olivier Nadeau",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "express": "^4.21.2",
+    "http": "^0.0.1-security",
+    "multer": "^1.4.5-lts.2",
+    "nodemon": "^3.1.9"
+  }
+}

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+        <title>TP02 - Olivier Nadeau</title>
+        <link rel="stylesheet" href="utilitaires/bootstrap-5.3.3-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="utilitaires/bootstrap-icons-1.11.3/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="utilitaires/jquery-3.7.1.min.js"></script>
+        <script src="utilitaires/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
+        <script src="js/requetes.js"></script>
+        <script src="js/vues.js"></script>
+    </head>
+
+    <body onLoad="reqListeLivre();">
+
+        <!-- Barre de navigation -->
+        <nav class="navbar navbar-expand-lg bg-nav-perso">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">Livres</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-bs-toggle="modal"
+                                data-bs-target="#idModalAjouterLivre">[<i class="bi bi-plus"></i>Ajouter]</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active hover-cursor" aria-current="page"
+                                onclick="rechercher()">Rechercher</a>
+                        </li>
+                        <li class="nav-item">
+                            <select class="form-select" id="selCategs" name="selCategs"
+                                onChange="afficherModalRechParCateg();">
+                                <option>Année</option>
+                                <option>Auteur</option>
+                                <option selected>Catégorie</option>
+                            </select>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active hover-cursor" onclick="trierParAnnee()">Trier par année</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active hover-cursor" onclick="trierParTitre()">Trier par titre</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Fin de la barre de navigation -->
+
+        <!-- Contenu de la page -->
+        <main class="container">
+
+            <!-- Toast confirmer la suppression -->
+
+            <div class="position-fixed top-50 start-50 translate-middle" style="z-index: 9999;">
+                <div id="ToastConfirmation" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-body">
+                        <i class="bi bi-trash3"></i> Voulez-vous vraiment supprimer ce livre ?
+                        <div class="mt-2 pt-2 border-top">
+                            <button type="button" class="btn btn-primary btn-sm"
+                                onclick="reqSupprimerLivre()">Oui</button>
+                            <button type="button" class="btn btn-secondary btn-sm"
+                                data-bs-dismiss="toast">Annuler</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fin toast confirmer la suppression -->
+
+            <div id="contenu"></div>
+
+            <!-- Modal enregistrer un livre -->
+
+            <div class="modal fade" id="idModalAjouterLivre" tabindex="-1" aria-labelledby="modalLivreLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5 bg-titre-modal" id="modalLivreLabel">Ajouter un livre
+                            </h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="row" method="POST" action="/json/livres/ajouter" enctype="multipart/form-data"
+                                onSubmit="return validerFormLivre('ajouter');">
+                                <div class="col-md-12">
+                                    <label for="titre" class="form-label">Titre</label>
+                                    <input type="text" class="form-control is-valid" id="titre" name="titre" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="idAuteur" class="form-label">ID Auteur</label>
+                                    <input type="number" class="form-control is-valid" id="idAuteur" name="idAuteur"
+                                        required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="annee" class="form-label">Année</label>
+                                    <input type="number" class="form-control is-valid" id="annee" name="annee" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="pages" class="form-label">Nombre de pages</label>
+                                    <input type="number" class="form-control is-valid" id="pages" name="pages" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="categorie" class="form-label">Catégorie</label>
+                                    <input type="text" class="form-control is-valid" id="categorie" name="categorie"
+                                        required>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="pochette" class="form-label">Pochette</label>
+                                    <input type="file" class="form-control is-valid" id="pochette" name="pochette">
+                                </div>
+                                <br>
+                                <div class="col-12 btn-enreg mt-3">
+                                    <input class="btn btn-primary" type="submit" value="Enregistrer">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fin du modal enregistrer un livre -->
+
+            <!-- Modal modifier un livre -->
+
+            <div class="modal fade" id="idModalModifierLivre" tabindex="-1" aria-labelledby="modalLivreLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5 bg-titre-modal" id="modalLivreLabel">Modifier un livre
+                            </h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- PUT method does not exist in HTML -->
+                            <form class="row" method="POST" action="/json/livres/update" enctype="multipart/form-data"
+                                onSubmit="return validerFormLivre('update');">
+                                <input type="hidden" id="update_livreId" name="id">
+                                <div class="col-md-12">
+                                    <label for="titre" class="form-label">Titre</label>
+                                    <input type="text" class="form-control is-valid" id="update_titre" name="titre"
+                                        required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="idAuteur" class="form-label">ID Auteur</label>
+                                    <input type="number" class="form-control is-valid" id="update_idAuteur"
+                                        name="idAuteur" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="annee" class="form-label">Année</label>
+                                    <input type="number" class="form-control is-valid" id="update_annee" name="annee"
+                                        required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="pages" class="form-label">Nombre de pages</label>
+                                    <input type="number" class="form-control is-valid" id="update_pages" name="pages"
+                                        required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="categorie" class="form-label">Catégorie</label>
+                                    <input type="text" class="form-control is-valid" id="update_categorie"
+                                        name="categorie" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="pochette" class="form-label">Pochette</label>
+                                    <input type="file" class="form-control is-valid" id="update_pochette"
+                                        name="pochette">
+                                </div>
+                                <br>
+                                <div class="col-12 btn-enreg mt-3">
+                                    <input class="btn btn-primary" type="submit" value="Enregistrer">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fin du modal pour filter lse livres -->
+            <div id="modalSelectionCategorie" class="modal fade" tabindex="-1" aria-labelledby="modalSelectionCategorie"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 id="modalSelectionCategorieHeader" class="modal-title">Veuillez sélectionner la
+                                catégorie
+                            </h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div id="modalSelectionCategorieBody" class="modal-body"></div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary"
+                                onclick="reqAfficherParCateg()">Enregistrer</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin du modal pour filter lse livres -->
+        </main>
+    </body>
+
+</html>

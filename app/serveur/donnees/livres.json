@@ -1,0 +1,102 @@
+{
+    "categories": [
+        "bandes dessinées",
+        "fantasy",
+        "classique",
+        "conte",
+        "science-fiction",
+        "philosophique"
+    ],
+    "livres": [
+        {
+            "id": 1,
+            "titre": "Une aventure d'Astérix le gaulois. Le devin",
+            "idAuteur": 11,
+            "annee": 1972,
+            "pages": 48,
+            "categorie": "bandes dessinées",
+            "pochette": "Une aventure d'Astérix le gaulois. Le devin.jpg"
+        },
+        {
+            "id": 2,
+            "titre": "Le Seigneur des Anneaux. La Communauté de l'Anneau",
+            "idAuteur": 22,
+            "annee": 1954,
+            "pages": 423,
+            "categorie": "fantasy",
+            "pochette": "Le Seigneur des Anneaux. La Communauté de l'Anneau.jpg"
+        },
+        {
+            "id": 3,
+            "titre": "Harry Potter à l'école des sorciers",
+            "idAuteur": 33,
+            "annee": 1997,
+            "pages": 320,
+            "categorie": "fantasy",
+            "pochette": "Harry Potter à l'école des sorciers.jpg"
+        },
+        {
+            "id": 4,
+            "titre": "Les Misérables",
+            "idAuteur": 44,
+            "annee": 1862,
+            "pages": 1463,
+            "categorie": "classique",
+            "pochette": "Les Misérables.jpg"
+        },
+        {
+            "id": 5,
+            "titre": "Le Petit Prince",
+            "idAuteur": 55,
+            "annee": 1943,
+            "pages": 96,
+            "categorie": "conte",
+            "pochette": "Le Petit Prince.jpg"
+        },
+        {
+            "id": 6,
+            "titre": "1984",
+            "idAuteur": 66,
+            "annee": 1949,
+            "pages": 328,
+            "categorie": "science-fiction",
+            "pochette": "1984.jpg"
+        },
+        {
+            "id": 7,
+            "titre": "L'Étranger",
+            "idAuteur": 77,
+            "annee": 1942,
+            "pages": 123,
+            "categorie": "philosophique",
+            "pochette": "L'Étranger.jpg"
+        },
+        {
+            "id": 8,
+            "titre": "La Peste",
+            "idAuteur": 77,
+            "annee": 1947,
+            "pages": 320,
+            "categorie": "philosophique",
+            "pochette": "La Peste.jpg"
+        },
+        {
+            "id": 9,
+            "titre": "Fondation",
+            "idAuteur": 88,
+            "annee": 1951,
+            "pages": 255,
+            "categorie": "science-fiction",
+            "pochette": "Fondation.jpg"
+        },
+        {
+            "id": 10,
+            "titre": "Dune",
+            "idAuteur": 99,
+            "annee": 1965,
+            "pages": 704,
+            "categorie": "science-fiction",
+            "pochette": "Dune.jpg"
+        }
+    ]
+}
