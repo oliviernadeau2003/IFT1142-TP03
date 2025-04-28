@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <categories>
+        <categorie>bandes dessinées</categorie>
+        <categorie>fantasy</categorie>
+        <categorie>classique</categorie>
+        <categorie>conte</categorie>
+        <categorie>science-fiction</categorie>
+        <categorie>philosophique</categorie>
+    </categories>
+    <livres>
+        <livre>
+            <id>1</id>
+            <titre>Une aventure d&#x27;Astérix le gaulois. Le devin</titre>
+            <idAuteur>11</idAuteur>
+            <annee>1972</annee>
+            <pages>48</pages>
+            <categorie>bandes dessinées</categorie>
+            <pochette>Une aventure d&#x27;Astérix le gaulois. Le devin.jpg</pochette>
+        </livre>
+        <livre>
+            <id>2</id>
+            <titre>Le Seigneur des Anneaux. La Communauté de l&#x27;Anneau</titre>
+            <idAuteur>22</idAuteur>
+            <annee>1954</annee>
+            <pages>423</pages>
+            <categorie>fantasy</categorie>
+            <pochette>Le Seigneur des Anneaux. La Communauté de l&#x27;Anneau.jpg</pochette>
+        </livre>
+        <livre>
+            <id>3</id>
+            <titre>Harry Potter à l&#x27;école des sorciers</titre>
+            <idAuteur>33</idAuteur>
+            <annee>1997</annee>
+            <pages>320</pages>
+            <categorie>fantasy</categorie>
+            <pochette>Harry Potter à l&#x27;école des sorciers.jpg</pochette>
+        </livre>
+        <livre>
+            <id>4</id>
+            <titre>Les Misérables</titre>
+            <idAuteur>44</idAuteur>
+            <annee>1862</annee>
+            <pages>1463</pages>
+            <categorie>classique</categorie>
+            <pochette>Les Misérables.jpg</pochette>
+        </livre>
+        <livre>
+            <id>5</id>
+            <titre>Le Petit Prince</titre>
+            <idAuteur>55</idAuteur>
+            <annee>1943</annee>
+            <pages>96</pages>
+            <categorie>conte</categorie>
+            <pochette>Le Petit Prince.jpg</pochette>
+        </livre>
+        <livre>
+            <id>6</id>
+            <titre>1984</titre>
+            <idAuteur>66</idAuteur>
+            <annee>1949</annee>
+            <pages>328</pages>
+            <categorie>science-fiction</categorie>
+            <pochette>1984.jpg</pochette>
+        </livre>
+        <livre>
+            <id>7</id>
+            <titre>L&#x27;Étranger</titre>
+            <idAuteur>77</idAuteur>
+            <annee>1942</annee>
+            <pages>123</pages>
+            <categorie>philosophique</categorie>
+            <pochette>L&#x27;Étranger.jpg</pochette>
+        </livre>
+        <livre>
+            <id>8</id>
+            <titre>La Peste</titre>
+            <idAuteur>77</idAuteur>
+            <annee>1947</annee>
+            <pages>320</pages>
+            <categorie>philosophique</categorie>
+            <pochette>La Peste.jpg</pochette>
+        </livre>
+        <livre>
+            <id>9</id>
+            <titre>Fondation</titre>
+            <idAuteur>88</idAuteur>
+            <annee>1951</annee>
+            <pages>255</pages>
+            <categorie>science-fiction</categorie>
+            <pochette>Fondation.jpg</pochette>
+        </livre>
+        <livre>
+            <id>10</id>
+            <titre>Dune</titre>
+            <idAuteur>99</idAuteur>
+            <annee>1965</annee>
+            <pages>704</pages>
+            <categorie>science-fiction</categorie>
+            <pochette>Dune.jpg</pochette>
+        </livre>
+    </livres>
+</root>
