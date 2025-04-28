@@ -47,6 +47,7 @@ const afficherLivresParCards = (livres) => {
     contenu.innerHTML = ''; // Vider le contenu existant
 
     for (const livre of livres) {
+
         const card = document.createElement('div');
         card.classList.add('card');
         card.style.width = '18rem';
