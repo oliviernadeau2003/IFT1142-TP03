@@ -66,7 +66,7 @@ app.post("/json/livres/ajouter", upload.single('pochette'), (req, res) => {
 app.get("/json/livres", (req, res) => {
   res.header("Content-type", "application/json");
   res.header("Charset", "utf8");
-  res.sendFile(__dirname + "/app/serveur/donnees/livres.json");
+  res.sendFile(__dirname + "/app/serveur/donnees/livres.xml");
 });
 
 // Categories

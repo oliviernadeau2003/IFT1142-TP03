@@ -3,20 +3,38 @@
 let donneesLivres;
 
 //* Read
+// const reqListeLivre = async () => {
+//     const url = "/json/livres";
+//     try {
+//         const reponse = await fetch(url, { method: "GET" });
+//         if (reponse.ok) {
+//             donneesLivres = await reponse.json();
+//             afficherLivresParCards(donneesLivres);
+//         } else {
+//             throw new Exception("Problème de chargement des livres!");
+//         }
+//     } catch (err) {
+//         alert(err.message);
+//     }
+// }
 const reqListeLivre = async () => {
     const url = "/json/livres";
     try {
         const reponse = await fetch(url, { method: "GET" });
         if (reponse.ok) {
-            donneesLivres = await reponse.json();
-            afficherLivresParCards(donneesLivres);
+            const xmlData = await reponse.text(); // Récupérer les données en texte
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(xmlData, "application/xml"); // Convertir le texte en XML
+            const livres = xmlDoc.getElementsByTagName('livre');
+            afficherLivresParCards(livres);
         } else {
-            throw new Exception("Problème de chargement des livres!");
+            throw new Error("Problème de chargement des livres!");
         }
     } catch (err) {
         alert(err.message);
     }
-}
+};
+
 
 const reqListeCategorie = async () => {
     const url = "/json/livres/categories";
@@ -32,20 +50,38 @@ const reqListeCategorie = async () => {
     }
 }
 
+// const reqGetLivre = async (id) => {
+//     const url = `/json/livres/${id}`;
+//     try {
+//         const reponse = await fetch(url, { method: "GET" });
+//         if (reponse.ok) {
+//             donneesLivres = await reponse.json();
+//             return donneesLivres;
+//         } else {
+//             throw new Exception("Problème de chargement des livres!");
+//         }
+//     } catch (err) {
+//         alert(err.message);
+//     }
+// }
 const reqGetLivre = async (id) => {
     const url = `/json/livres/${id}`;
     try {
         const reponse = await fetch(url, { method: "GET" });
         if (reponse.ok) {
-            donneesLivres = await reponse.json();
-            return donneesLivres;
+            const xmlData = await reponse.text();
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(xmlData, "application/xml");
+            const livre = xmlDoc.getElementsByTagName('livre')[0];
+            return livre;
         } else {
-            throw new Exception("Problème de chargement des livres!");
+            throw new Error("Problème de chargement du livre!");
         }
     } catch (err) {
         alert(err.message);
     }
-}
+};
+
 
 const reqAfficherParCateg = async () => {
     try {

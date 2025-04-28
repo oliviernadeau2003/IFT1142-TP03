@@ -32,16 +32,97 @@ const creerCard = (livre) => {
 //     }
 // }
 
-const afficherLivresParCards = (donneesLivres) => {
-    // const categs = donneesLivres.categories;
-    // creerSelectCategories(categs);
-    const listeLivres = donneesLivres.livres;
-    let liste = `<div class="row">`;
-    for (const livre of listeLivres) {
-        liste += creerCard(livre);
+// const afficherLivresParCards = (donneesLivres) => {
+//     // const categs = donneesLivres.categories;
+//     // creerSelectCategories(categs);
+//     const listeLivres = donneesLivres.livres;
+//     let liste = `<div class="row">`;
+//     for (const livre of listeLivres) {
+//         liste += creerCard(livre);
+//     }
+//     document.getElementById('contenu').innerHTML = liste;
+// }
+const afficherLivresParCards = (livres) => {
+    const contenu = document.getElementById('contenu');
+    contenu.innerHTML = ''; // Vider le contenu existant
+
+    for (const livre of livres) {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.style.width = '18rem';
+
+        const titre = livre.getElementsByTagName('titre')[0].textContent;
+        const idAuteur = livre.getElementsByTagName('idAuteur')[0].textContent;
+        const annee = livre.getElementsByTagName('annee')[0].textContent;
+        const pages = livre.getElementsByTagName('pages')[0].textContent;
+        const categorie = livre.getElementsByTagName('categorie')[0].textContent;
+        const pochette = livre.getElementsByTagName('pochette')[0].textContent;
+
+        // Créer les éléments de la card
+        const titreElement = document.createElement('h4');
+        titreElement.textContent = titre;
+        const hr1 = document.createElement('hr');
+
+        const imageElement = document.createElement('img');
+        imageElement.src = `http://localhost:3000/livres/pochettes/${pochette}`;
+
+        const container = document.createElement('div');
+        container.classList.add('container');
+
+        const hr2 = document.createElement('hr');
+        const idAuteurElement = document.createElement('span');
+        idAuteurElement.textContent = `idAuteur : ${idAuteur}`;
+        const anneeElement = document.createElement('span');
+        anneeElement.textContent = `Année : ${annee}`;
+        const pagesElement = document.createElement('span');
+        pagesElement.textContent = `${pages} pages`;
+        const categorieElement = document.createElement('span');
+        categorieElement.textContent = capitalize(categorie);
+        categorieElement.classList.add('capitalize');
+        const hr3 = document.createElement('hr');
+
+        // Créer les boutons de modification et suppression
+        const buttonsContainer = document.createElement('div');
+        buttonsContainer.classList.add('d-flex', 'flex-row', 'gap-2', 'mx-2', 'justify-content-around', 'my-3');
+
+        const editButton = document.createElement('button');
+        editButton.classList.add('edit-button');
+        editButton.id = "updateLivrebtn";
+        editButton.onclick = () => afficherModalModifier(livre.getElementsByTagName('id')[0].textContent);
+        const editIcon = document.createElement('i');
+        editIcon.classList.add('bi', 'bi-pencil');
+        editButton.appendChild(editIcon);
+
+        const deleteButton = document.createElement('button');
+        deleteButton.classList.add('delete-button');
+        deleteButton.id = "liveToastBtn";
+        deleteButton.onclick = () => afficherToastConfirmation(livre.getElementsByTagName('id')[0].textContent);
+        const deleteIcon = document.createElement('i');
+        deleteIcon.classList.add('bi', 'bi-trash3');
+        deleteButton.appendChild(deleteIcon);
+
+        // Ajouter les éléments à la card
+        buttonsContainer.appendChild(editButton);
+        buttonsContainer.appendChild(deleteButton);
+
+        container.appendChild(hr2);
+        container.appendChild(idAuteurElement);
+        container.appendChild(anneeElement);
+        container.appendChild(pagesElement);
+        container.appendChild(categorieElement);
+        container.appendChild(hr3);
+
+        card.appendChild(titreElement);
+        card.appendChild(hr1);
+        card.appendChild(imageElement);
+        card.appendChild(container);
+        card.appendChild(buttonsContainer);
+
+        // Ajouter la card au contenu
+        contenu.appendChild(card);
     }
-    document.getElementById('contenu').innerHTML = liste;
-}
+};
+
 
 const afficherModalRechParCateg = async () => {
     const selCategs = document.getElementById("selCategs");
