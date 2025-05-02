@@ -139,6 +139,7 @@ function modifierLivre(idLivre, updatedData) {
     const updatedLivre = { ...livreExist, ...updatedData };
     listeLivres[indexLivre] = updatedLivre;
 
+    // Modification / Suppression de la catégorie
     if (ancienneCategorie && nouvelleCategorie && ancienneCategorie !== nouvelleCategorie) {
         const autresLivresAvecAncienneCategorie = listeLivres.some(
             (livre, idx) => livre.categorie.toLowerCase() === ancienneCategorie.toLowerCase() && idx !== indexLivre

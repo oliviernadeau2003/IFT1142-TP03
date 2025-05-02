@@ -1,4 +1,4 @@
-const creerCardXML = (livre) => {
+const creerCardOfXML = (livre) => {
     const card = document.createElement('div');
     card.classList.add('card');
     card.style.width = '18rem';
@@ -81,8 +81,10 @@ const afficherLivresParCards = (livres) => {
     const contenu = document.getElementById('contenu');
     contenu.innerHTML = ''; // Vider le contenu existant
 
+    console.log(livres);
+
     for (const livre of livres) {
-        contenu.appendChild(creerCardXML(livre));
+        contenu.appendChild(creerCardOfXML(livre));
     }
 };
 

@@ -175,6 +175,8 @@ const reqSupprimerLivre = async (idLivre) => {
 
 //* Autres
 const trierParAnnee = () => {
+    console.log(donneesLivres);
+
     let donneesLivresTrier = { livres: donneesLivres.livres.sort((a, b) => a.annee - b.annee) };
     afficherLivresParCards(donneesLivresTrier)
 }
