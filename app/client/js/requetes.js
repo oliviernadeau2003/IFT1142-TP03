@@ -3,20 +3,6 @@
 let donneesLivres;
 
 //* Read
-// const reqListeLivre = async () => {
-//     const url = "/json/livres";
-//     try {
-//         const reponse = await fetch(url, { method: "GET" });
-//         if (reponse.ok) {
-//             donneesLivres = await reponse.json();
-//             afficherLivresParCards(donneesLivres);
-//         } else {
-//             throw new Exception("Problème de chargement des livres!");
-//         }
-//     } catch (err) {
-//         alert(err.message);
-//     }
-// }
 const reqListeLivre = async () => {
     const url = "/json/livres";
     try {
@@ -50,20 +36,6 @@ const reqListeCategorie = async () => {
     }
 }
 
-// const reqGetLivre = async (id) => {
-//     const url = `/json/livres/${id}`;
-//     try {
-//         const reponse = await fetch(url, { method: "GET" });
-//         if (reponse.ok) {
-//             donneesLivres = await reponse.json();
-//             return donneesLivres;
-//         } else {
-//             throw new Exception("Problème de chargement des livres!");
-//         }
-//     } catch (err) {
-//         alert(err.message);
-//     }
-// }
 const reqGetLivre = async (id) => {
     const url = `/json/livres/${id}`;
     try {
@@ -214,3 +186,33 @@ const trierParTitre = () => {
     let donneesLivresTrier = { livres: donneesLivres.livres.sort((a, b) => a.titre.localeCompare(b.titre)) };
     afficherLivresParCards(donneesLivresTrier)
 }
+
+// const reqGetLivre = async (id) => {
+//     const url = `/json/livres/${id}`;
+//     try {
+//         const reponse = await fetch(url, { method: "GET" });
+//         if (reponse.ok) {
+//             donneesLivres = await reponse.json();
+//             return donneesLivres;
+//         } else {
+//             throw new Exception("Problème de chargement des livres!");
+//         }
+//     } catch (err) {
+//         alert(err.message);
+//     }
+// }
+
+// const reqListeLivre = async () => {
+//     const url = "/json/livres";
+//     try {
+//         const reponse = await fetch(url, { method: "GET" });
+//         if (reponse.ok) {
+//             donneesLivres = await reponse.json();
+//             afficherLivresParCards(donneesLivres);
+//         } else {
+//             throw new Exception("Problème de chargement des livres!");
+//         }
+//     } catch (err) {
+//         alert(err.message);
+//     }
+// }
