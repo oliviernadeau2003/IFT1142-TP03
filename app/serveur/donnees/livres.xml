@@ -7,6 +7,7 @@
 <categorie>conte</categorie>
 <categorie>science-fiction</categorie>
 <categorie>philosophique</categorie>
+<categorie>111</categorie>
 </categories>
 <livres>
 <livre>
@@ -98,6 +99,15 @@
 <pages>704</pages>
 <categorie>science-fiction</categorie>
 <pochette>Dune.jpg</pochette>
+</livre>
+<livre>
+<id>11</id>
+<titre>111</titre>
+<idAuteur>1111</idAuteur>
+<annee>111</annee>
+<pages>111</pages>
+<categorie>111</categorie>
+<pochette>null</pochette>
 </livre>
 </livres>
 </root>

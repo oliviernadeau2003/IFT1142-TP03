@@ -81,8 +81,6 @@ const afficherLivresParCards = (livres) => {
     const contenu = document.getElementById('contenu');
     contenu.innerHTML = ''; // Vider le contenu existant
 
-    console.log(livres);
-
     for (const livre of livres) {
         contenu.appendChild(creerCardOfXML(livre));
     }

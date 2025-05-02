@@ -12,6 +12,7 @@ const reqListeLivre = async () => {
             const parser = new DOMParser();
             const xmlDoc = parser.parseFromString(xmlData, "application/xml"); // Convertir le texte en XML
             const livres = xmlDoc.getElementsByTagName('livre');
+            donneesLivres = livres;
             afficherLivresParCards(livres);
         } else {
             throw new Error("Problème de chargement des livres!");
@@ -20,7 +21,6 @@ const reqListeLivre = async () => {
         alert(err.message);
     }
 };
-
 
 const reqListeCategorie = async () => {
     const url = "/json/livres/categories";
@@ -86,7 +86,9 @@ const reqAfficherParCateg = async () => {
                 reponse = await fetch(url, { method: "GET" });
 
                 if (reponse.ok) {
-                    const listeLivres = await reponse.json();
+                    const listeLivres = await reponse.text();
+                    console.log(listeLivres);
+
                     afficherLivresParCards(listeLivres);
                 } else throw new Exception("Problème de chargement des Livres !");
                 break;
@@ -175,16 +177,27 @@ const reqSupprimerLivre = async (idLivre) => {
 
 //* Autres
 const trierParAnnee = () => {
-    console.log(donneesLivres);
+    const livresArray = Array.from(donneesLivres);
+    livresArray.sort((a, b) => {
+        const anneeA = parseInt(a.getElementsByTagName('annee')[0].textContent);
+        const anneeB = parseInt(b.getElementsByTagName('annee')[0].textContent);
+        return anneeA - anneeB;
+    });
 
-    let donneesLivresTrier = { livres: donneesLivres.livres.sort((a, b) => a.annee - b.annee) };
-    afficherLivresParCards(donneesLivresTrier)
+    afficherLivresParCards(livresArray)
 }
 
 const trierParTitre = () => {
-    let donneesLivresTrier = { livres: donneesLivres.livres.sort((a, b) => a.titre.localeCompare(b.titre)) };
-    afficherLivresParCards(donneesLivresTrier)
-}
+    const livresArray = Array.from(donneesLivres);
+    livresArray.sort((a, b) => {
+        const titreA = a.getElementsByTagName('titre')[0].textContent.toLowerCase();
+        const titreB = b.getElementsByTagName('titre')[0].textContent.toLowerCase();
+        return titreA.localeCompare(titreB);
+    });
+
+    afficherLivresParCards(livresArray);
+};
+
 
 // const reqGetLivre = async (id) => {
 //     const url = `/json/livres/${id}`;

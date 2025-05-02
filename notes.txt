@@ -3,7 +3,7 @@
     Fonctionnalité : 
 
      X Ajout
-     x Modification
+     X Modification
      X Suppression
-     - Trier
+     X Trier
      - Recherche 
