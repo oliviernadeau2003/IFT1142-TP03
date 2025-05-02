@@ -26,13 +26,13 @@ const creerCardXML = (livre) => {
     container.classList.add('container');
 
     const hr2 = document.createElement('hr');
-    const idAuteurElement = document.createElement('span');
+    const idAuteurElement = document.createElement('p');
     idAuteurElement.textContent = `idAuteur : ${idAuteur}`;
-    const anneeElement = document.createElement('span');
+    const anneeElement = document.createElement('p');
     anneeElement.textContent = `Année : ${annee}`;
-    const pagesElement = document.createElement('span');
+    const pagesElement = document.createElement('p');
     pagesElement.textContent = `${pages} pages`;
-    const categorieElement = document.createElement('span');
+    const categorieElement = document.createElement('p');
     categorieElement.textContent = capitalize(categorie);
     categorieElement.classList.add('capitalize');
     const hr3 = document.createElement('hr');
