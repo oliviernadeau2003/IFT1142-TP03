@@ -43,8 +43,8 @@ fs.readFile(dataPath, 'utf8', (err, data) => {
             );
         });
 
-        console.log("Catégories :", listeCategories);
-        console.log("Liste des livres :", listeLivres);
+        // console.log("Catégories :", listeCategories);
+        // console.log("Liste des livres :", listeLivres);
     });
 });
 

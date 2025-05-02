@@ -1,73 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
-<categories>
-<categorie>fantasy</categorie>
-<categorie>science-fiction</categorie>
-<categorie>philosophique</categorie>
-</categories>
-<livres>
-<livre>
-<id>2</id>
-<titre>Le Seigneur des Anneaux. La Communauté de l'Anneau</titre>
-<idAuteur>22</idAuteur>
-<annee>1954</annee>
-<pages>423</pages>
-<categorie>fantasy</categorie>
-<pochette>Le Seigneur des Anneaux. La Communauté de l'Anneau.jpg</pochette>
-</livre>
-<livre>
-<id>3</id>
-<titre>Harry Potter à l'école des sorciers</titre>
-<idAuteur>33</idAuteur>
-<annee>1997</annee>
-<pages>320</pages>
-<categorie>fantasy</categorie>
-<pochette>Harry Potter à l'école des sorciers.jpg</pochette>
-</livre>
-<livre>
-<id>6</id>
-<titre>1984</titre>
-<idAuteur>66</idAuteur>
-<annee>1949</annee>
-<pages>328</pages>
-<categorie>science-fiction</categorie>
-<pochette>1984.jpg</pochette>
-</livre>
-<livre>
-<id>7</id>
-<titre>L'Étranger</titre>
-<idAuteur>77</idAuteur>
-<annee>1942</annee>
-<pages>123</pages>
-<categorie>philosophique</categorie>
-<pochette>L'Étranger.jpg</pochette>
-</livre>
-<livre>
-<id>8</id>
-<titre>La Peste</titre>
-<idAuteur>77</idAuteur>
-<annee>1947</annee>
-<pages>320</pages>
-<categorie>philosophique</categorie>
-<pochette>La Peste.jpg</pochette>
-</livre>
-<livre>
-<id>9</id>
-<titre>Fondation</titre>
-<idAuteur>88</idAuteur>
-<annee>1951</annee>
-<pages>255</pages>
-<categorie>science-fiction</categorie>
-<pochette>Fondation.jpg</pochette>
-</livre>
-<livre>
-<id>10</id>
-<titre>Dune</titre>
-<idAuteur>99</idAuteur>
-<annee>1965</annee>
-<pages>704</pages>
-<categorie>science-fiction</categorie>
-<pochette>Dune.jpg</pochette>
-</livre>
-</livres>
+    <categories>
+        <categorie>fantasy</categorie>
+        <categorie>science-fiction</categorie>
+        <categorie>philosophique</categorie>
+    </categories>
+    <livres>
+        <livre>
+            <id>3</id>
+            <titre>Harry Potter à l'école des sorciers</titre>
+            <idAuteur>33</idAuteur>
+            <annee>1997</annee>
+            <pages>320</pages>
+            <categorie>fantasy</categorie>
+            <pochette>Harry Potter à l'école des sorciers.jpg</pochette>
+        </livre>
+        <livre>
+            <id>6</id>
+            <titre>1984</titre>
+            <idAuteur>66</idAuteur>
+            <annee>1949</annee>
+            <pages>328</pages>
+            <categorie>science-fiction</categorie>
+            <pochette>1984.jpg</pochette>
+        </livre>
+        <livre>
+            <id>7</id>
+            <titre>L'Étranger</titre>
+            <idAuteur>77</idAuteur>
+            <annee>1942</annee>
+            <pages>123</pages>
+            <categorie>philosophique</categorie>
+            <pochette>L'Étranger.jpg</pochette>
+        </livre>
+        <livre>
+            <id>8</id>
+            <titre>La Peste</titre>
+            <idAuteur>77</idAuteur>
+            <annee>1947</annee>
+            <pages>320</pages>
+            <categorie>philosophique</categorie>
+            <pochette>La Peste.jpg</pochette>
+        </livre>
+        <livre>
+            <id>9</id>
+            <titre>Fondation</titre>
+            <idAuteur>88</idAuteur>
+            <annee>1951</annee>
+            <pages>255</pages>
+            <categorie>science-fiction</categorie>
+            <pochette>Fondation.jpg</pochette>
+        </livre>
+        <livre>
+            <id>10</id>
+            <titre>Dune</titre>
+            <idAuteur>99</idAuteur>
+            <annee>1965</annee>
+            <pages>704</pages>
+            <categorie>science-fiction</categorie>
+            <pochette>Dune.jpg</pochette>
+        </livre>
+    </livres>
 </root>
