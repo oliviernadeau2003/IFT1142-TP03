@@ -136,6 +136,8 @@ const afficherToastConfirmation = (idLivre) => {
 
 const afficherModalModifier = async (idLivre) => {
     const livre = await reqGetLivre(idLivre);
+    console.log(livre);
+
 
     // Remplire les champs avec les données du livre
     document.getElementById('update_livreId').value = idLivre;

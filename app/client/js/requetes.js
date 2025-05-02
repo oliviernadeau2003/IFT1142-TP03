@@ -41,10 +41,7 @@ const reqGetLivre = async (id) => {
     try {
         const reponse = await fetch(url, { method: "GET" });
         if (reponse.ok) {
-            const xmlData = await reponse.text();
-            const parser = new DOMParser();
-            const xmlDoc = parser.parseFromString(xmlData, "application/xml");
-            const livre = xmlDoc.getElementsByTagName('livre')[0];
+            const livre = await reponse.json();
             return livre;
         } else {
             throw new Error("Problème de chargement du livre!");
