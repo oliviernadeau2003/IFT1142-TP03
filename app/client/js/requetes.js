@@ -66,8 +66,12 @@ const reqAfficherParCateg = async () => {
                 reponse = await fetch(url, { method: "GET" });
 
                 if (reponse.ok) {
-                    const listeLivres = await reponse.json();
-                    afficherLivresParCards(listeLivres);
+                    const xmlData = await reponse.text(); // Récupérer les données en texte
+                    const parser = new DOMParser();
+                    const xmlDoc = parser.parseFromString(xmlData, "application/xml"); // Convertir le texte en XML
+                    const livres = xmlDoc.getElementsByTagName('livre');
+
+                    afficherLivresParCards(livres);
                 } else throw new Exception("Problème de chargement des Livres !");
                 break;
             case "Auteur":
@@ -76,8 +80,12 @@ const reqAfficherParCateg = async () => {
                 reponse = await fetch(url), { method: "GET" };
 
                 if (reponse.ok) {
-                    const listeLivres = await reponse.json();
-                    afficherLivresParCards(listeLivres);
+                    const xmlData = await reponse.text(); // Récupérer les données en texte
+                    const parser = new DOMParser();
+                    const xmlDoc = parser.parseFromString(xmlData, "application/xml"); // Convertir le texte en XML
+                    const livres = xmlDoc.getElementsByTagName('livre');
+
+                    afficherLivresParCards(livres);
                 } else throw new Exception("Problème de chargement des Livres !");
                 break;
             case "Catégorie":
@@ -86,10 +94,12 @@ const reqAfficherParCateg = async () => {
                 reponse = await fetch(url, { method: "GET" });
 
                 if (reponse.ok) {
-                    const listeLivres = await reponse.text();
-                    console.log(listeLivres);
+                    const xmlData = await reponse.text(); // Récupérer les données en texte
+                    const parser = new DOMParser();
+                    const xmlDoc = parser.parseFromString(xmlData, "application/xml"); // Convertir le texte en XML
+                    const livres = xmlDoc.getElementsByTagName('livre');
 
-                    afficherLivresParCards(listeLivres);
+                    afficherLivresParCards(livres);
                 } else throw new Exception("Problème de chargement des Livres !");
                 break;
 

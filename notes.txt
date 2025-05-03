@@ -6,4 +6,4 @@
      X Modification
      X Suppression
      X Trier
-     - Recherche 
+     X Recherche 

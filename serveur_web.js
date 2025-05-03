@@ -99,7 +99,7 @@ app.get("/livres/pochettes/:idLivre", (req, res) => {
 // Categorie
 app.get("/json/livres/categorie/:categorie", (req, res) => {
   try {
-    res.status(200).json({ livres: getLivreParCategorie("categorie", req.params.categorie) });
+    res.status(200).send(getLivreParCategorie("categorie", req.params.categorie));
   } catch (err) {
     res.status(500).end();
   }
@@ -108,7 +108,7 @@ app.get("/json/livres/categorie/:categorie", (req, res) => {
 // Auteurs
 app.get("/json/livres/auteur/:idAuteur", (req, res) => {
   try {
-    res.status(200).json({ livres: getLivreParCategorie("auteur", req.params.idAuteur) });
+    res.status(200).send(getLivreParCategorie("auteur", req.params.idAuteur));
   } catch (err) {
     res.status(500).end();
   }
@@ -117,7 +117,7 @@ app.get("/json/livres/auteur/:idAuteur", (req, res) => {
 // Année
 app.get("/json/livres/annee/:annee", (req, res) => {
   try {
-    res.status(200).json({ livres: getLivreParCategorie("annee", req.params.annee) });
+    res.status(200).send(getLivreParCategorie("annee", req.params.annee));
   } catch (err) {
     res.status(500).end();
   }

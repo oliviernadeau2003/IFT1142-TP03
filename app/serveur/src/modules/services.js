@@ -107,6 +107,24 @@ function getLivre(idLivre) {
     return listeLivres[indexLivre];
 }
 
+// function getLivreParCategorie(type, params) {
+//     let data;
+//     switch (type) {
+//         case "categorie":
+//             data = listeLivres.filter(livre => livre.categorie === params);
+//             break;
+//         case "auteur":
+//             data = listeLivres.filter(livre => livre.idAuteur === parseInt(params));
+//             break;
+//         case "annee":
+//             data = listeLivres.filter(livre => livre.annee > parseInt(params));
+//             break;
+//         default:
+//             throw new Error("Type non supporté.");
+//     }
+//     return data;
+// }
+
 function getLivreParCategorie(type, params) {
     let data;
     switch (type) {
@@ -122,8 +140,29 @@ function getLivreParCategorie(type, params) {
         default:
             throw new Error("Type non supporté.");
     }
-    return data;
+
+    // Convert the data to XML format
+    const xml = livresToXML(data);
+    return xml;
 }
+
+function livresToXML(livres) {
+    let xml = `<?xml version="1.0" encoding="UTF-8"?>\n<livres>\n`;
+    for (const livre of livres) {
+        xml += `  <livre>\n`;
+        xml += `    <id>${livre.id}</id>\n`;
+        xml += `    <titre>${livre.titre}</titre>\n`;
+        xml += `    <idAuteur>${livre.idAuteur}</idAuteur>\n`;
+        xml += `    <annee>${livre.annee}</annee>\n`;
+        xml += `    <pages>${livre.pages}</pages>\n`;
+        xml += `    <categorie>${livre.categorie}</categorie>\n`;
+        xml += `    <pochette>${livre.pochette}</pochette>\n`;
+        xml += `  </livre>\n`;
+    }
+    xml += `</livres>`;
+    return xml;
+}
+
 
 //* Update
 function modifierLivre(idLivre, updatedData) {
