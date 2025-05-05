@@ -4,7 +4,7 @@ let donneesLivres;
 
 //* Read
 const reqListeLivre = async () => {
-    const url = "/json/livres";
+    const url = "/xml/livres";
     try {
         const reponse = await fetch(url, { method: "GET" });
         if (reponse.ok) {
@@ -23,7 +23,7 @@ const reqListeLivre = async () => {
 };
 
 const reqListeCategorie = async () => {
-    const url = "/json/livres/categories";
+    const url = "/xml/livres/categories";
     try {
         const reponse = await fetch(url, { method: "GET" });
         if (reponse.ok) {
@@ -37,7 +37,7 @@ const reqListeCategorie = async () => {
 }
 
 const reqGetLivre = async (id) => {
-    const url = `/json/livres/${id}`;
+    const url = `/xml/livres/${id}`;
     try {
         const reponse = await fetch(url, { method: "GET" });
         if (reponse.ok) {
@@ -62,7 +62,7 @@ const reqAfficherParCateg = async () => {
         switch (optionChoisie) {
             case "Année":
                 choix = $("#modalSelectionChoixCateg").val();
-                url = `/json/livres/annee/${choix}`;
+                url = `/xml/livres/annee/${choix}`;
                 reponse = await fetch(url, { method: "GET" });
 
                 if (reponse.ok) {
@@ -76,7 +76,7 @@ const reqAfficherParCateg = async () => {
                 break;
             case "Auteur":
                 choix = $("#modalSelectionChoixCateg").val();
-                url = `/json/livres/auteur/${choix}`;
+                url = `/xml/livres/auteur/${choix}`;
                 reponse = await fetch(url), { method: "GET" };
 
                 if (reponse.ok) {
@@ -90,7 +90,7 @@ const reqAfficherParCateg = async () => {
                 break;
             case "Catégorie":
                 choix = $("#modalChoixCateg").val();
-                url = `/json/livres/categorie/${choix}`;
+                url = `/xml/livres/categorie/${choix}`;
                 reponse = await fetch(url, { method: "GET" });
 
                 if (reponse.ok) {
@@ -116,7 +116,7 @@ const reqAfficherParCateg = async () => {
 
 //* Update
 const reqUpdateLivre = async (idLivre) => {
-    const url = `/json/livres/update/${idLivre}`;
+    const url = `/xml/livres/update/${idLivre}`;
     try {
         const reponse = await fetch(url, { method: "PUT" });
         if (reponse.ok) {
@@ -165,7 +165,7 @@ function validerFormLivre(type) {
 
 //* Delete
 const reqSupprimerLivre = async (idLivre) => {
-    const url = `/json/livres/supprimer/${idLivre}`;
+    const url = `/xml/livres/supprimer/${idLivre}`;
     try {
         const reponse = await fetch(url, { method: "DELETE" });
         if (reponse.ok) {
@@ -210,7 +210,7 @@ const trierParTitre = () => {
 
 
 // const reqGetLivre = async (id) => {
-//     const url = `/json/livres/${id}`;
+//     const url = `/xml/livres/${id}`;
 //     try {
 //         const reponse = await fetch(url, { method: "GET" });
 //         if (reponse.ok) {
@@ -225,7 +225,7 @@ const trierParTitre = () => {
 // }
 
 // const reqListeLivre = async () => {
-//     const url = "/json/livres";
+//     const url = "/xml/livres";
 //     try {
 //         const reponse = await fetch(url, { method: "GET" });
 //         if (reponse.ok) {

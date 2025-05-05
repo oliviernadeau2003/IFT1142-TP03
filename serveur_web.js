@@ -41,7 +41,7 @@ app.get("/", (req, res) => {
 // * - CRUD -
 
 //* Create
-app.post("/json/livres/ajouter", upload.single('pochette'), (req, res) => {
+app.post("/xml/livres/ajouter", upload.single('pochette'), (req, res) => {
   try {
     const nouveauLivre = {
       id: getNextId(),
@@ -63,14 +63,14 @@ app.post("/json/livres/ajouter", upload.single('pochette'), (req, res) => {
 
 // * Read
 // Livres
-app.get("/json/livres", (req, res) => {
-  res.header("Content-type", "application/json");
+app.get("/xml/livres", (req, res) => {
+  res.header("Content-type", "application/xml");
   res.header("Charset", "utf8");
   res.sendFile(__dirname + "/app/serveur/donnees/livres.xml");
 });
 
 // Categories
-app.get("/json/livres/categories", (req, res) => {
+app.get("/xml/livres/categories", (req, res) => {
   try {
     res.status(200).json(getCategories());
   } catch (err) {
@@ -79,7 +79,7 @@ app.get("/json/livres/categories", (req, res) => {
 });
 
 // Get un livre par Id
-app.get("/json/livres/:idLivre", (req, res) => {
+app.get("/xml/livres/:idLivre", (req, res) => {
   try {
     res.status(200).json(getLivre(req.params.idLivre));
   } catch (err) {
@@ -97,7 +97,7 @@ app.get("/livres/pochettes/:idLivre", (req, res) => {
 });
 
 // Categorie
-app.get("/json/livres/categorie/:categorie", (req, res) => {
+app.get("/xml/livres/categorie/:categorie", (req, res) => {
   try {
     res.status(200).send(getLivreParCategorie("categorie", req.params.categorie));
   } catch (err) {
@@ -106,7 +106,7 @@ app.get("/json/livres/categorie/:categorie", (req, res) => {
 });
 
 // Auteurs
-app.get("/json/livres/auteur/:idAuteur", (req, res) => {
+app.get("/xml/livres/auteur/:idAuteur", (req, res) => {
   try {
     res.status(200).send(getLivreParCategorie("auteur", req.params.idAuteur));
   } catch (err) {
@@ -115,7 +115,7 @@ app.get("/json/livres/auteur/:idAuteur", (req, res) => {
 });
 
 // Année
-app.get("/json/livres/annee/:annee", (req, res) => {
+app.get("/xml/livres/annee/:annee", (req, res) => {
   try {
     res.status(200).send(getLivreParCategorie("annee", req.params.annee));
   } catch (err) {
@@ -124,7 +124,7 @@ app.get("/json/livres/annee/:annee", (req, res) => {
 });
 
 //* Update
-app.post("/json/livres/update", upload.single('pochette'), (req, res) => {
+app.post("/xml/livres/update", upload.single('pochette'), (req, res) => {
   try {
     const nouvelleDonnee = {
       titre: req.body.titre,
@@ -144,7 +144,7 @@ app.post("/json/livres/update", upload.single('pochette'), (req, res) => {
 })
 
 //* Supprimer
-app.delete("/json/livres/supprimer/:idLivre", (req, res) => {
+app.delete("/xml/livres/supprimer/:idLivre", (req, res) => {
   try {
     supprimerLivre(req.params.idLivre);
     res.status(200).end();

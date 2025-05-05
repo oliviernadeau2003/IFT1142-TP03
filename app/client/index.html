@@ -94,7 +94,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form class="row" method="POST" action="/json/livres/ajouter" enctype="multipart/form-data"
+                            <form class="row" method="POST" action="/xml/livres/ajouter" enctype="multipart/form-data"
                                 onSubmit="return validerFormLivre('ajouter');">
                                 <div class="col-md-12">
                                     <label for="titre" class="form-label">Titre</label>
@@ -147,7 +147,7 @@
                         </div>
                         <div class="modal-body">
                             <!-- PUT method does not exist in HTML -->
-                            <form class="row" method="POST" action="/json/livres/update" enctype="multipart/form-data"
+                            <form class="row" method="POST" action="/xml/livres/update" enctype="multipart/form-data"
                                 onSubmit="return validerFormLivre('update');">
                                 <input type="hidden" id="update_livreId" name="id">
                                 <div class="col-md-12">
